@@ -1,0 +1,39 @@
+.text{
+    color: floralwhite;
+    font-size: 50px;
+    text-align: center;
+}
+
+em{
+   font-family :  Blackadder ITC;
+   font-size : 50px;
+   color: floralwhite;
+}
+h6{
+    float: left;
+    font-size : 30px;
+}
+
+.text-normal{
+        color: blueviolet;
+        font-family: 'Courier New', Courier, monospace;
+        padding: 10px 20px;
+        background-color: black;
+        border-radius: 75px;
+ }
+
+body{
+    background-image : url(metalllllll.jfif);
+    font-size: 25px;
+}
+
+.mynav a {
+padding: 10px 20px;
+background-color: black;
+color: white;
+border-radius: 3000px;
+}
+.mynav a:hover {
+    background-color: white;
+    color: black;
+}
