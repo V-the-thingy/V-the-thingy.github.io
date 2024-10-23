@@ -7,8 +7,8 @@
     text-align: center;
     text-wrap: none;
     float: none;
-    margin-left: 250px;
-    margin-right: 250px;
+    margin-left: 15%;
+    margin-right: 15%;
     text-wrap: stable;
 }
 
@@ -21,8 +21,8 @@
     text-align: center;
     float: none;
     text-wrap: none;
-    margin-left: 250px;
-    margin-right: 250px;
+    margin-left: 15%;
+    margin-right: 15%;
 }
 
 .boxtext2 {
@@ -34,8 +34,8 @@
     text-align: center;
     float: none;
     text-wrap: none;
-    margin-left: 250px;
-    margin-right: 250px;
+    margin-left: 15%;
+    margin-right: 15%;
 }
 
 body{
@@ -47,8 +47,8 @@ body{
     font-family: 'Courier New', Courier, monospace;
     font-weight: bolder;
     text-wrap: none;
-    margin-left: 250px;
-    margin-right: 250px;
+    margin-left: 15%;
+    margin-right: 15%;
 }
 
 em {
