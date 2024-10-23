@@ -9,6 +9,7 @@
     float: none;
     margin-left: 300px;
     margin-right: 300px;
+    text-wrap: stable;
 }
 
 .blog {
@@ -19,6 +20,7 @@
     font-size: 30px;
     text-align: center;
     float: none;
+    text-wrap: stable;
     margin-left: 300px;
     margin-right: 300px;
 }
@@ -31,6 +33,7 @@
     font-size: 30px;
     text-align: center;
     float: none;
+    text-wrap: stable;
     margin-left: 500px;
     margin-right: 500px;
 }
@@ -43,6 +46,7 @@ body{
     font-size: 40px;
     font-family: 'Courier New', Courier, monospace;
     font-weight: bolder;
+    text-wrap: stable;
     margin-left: 250px;
     margin-right: 250px;
 }
