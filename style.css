@@ -3,9 +3,12 @@
     color : #be19b1;
     border: 5px solid #ff00dd;
     background-color: #000000;
-    font-size: 25px;
-    margin-left: 0px;
-    margin-right: 0px;
+    font-size: 30px;
+    text-align: center;
+    text-wrap: wrap;
+    float: none;
+    margin-left: 300px;
+    margin-right: 300px;
 }
 
 .blog {
@@ -15,7 +18,6 @@
     background-color: #000000;
     font-size: 30px;
     text-align: center;
-    text-wrap: wrap;
     float: none;
     margin-left: 300px;
     margin-right: 300px;
@@ -28,7 +30,6 @@
     background-color: #000000;
     font-size: 30px;
     text-align: center;
-    text-wrap: wrap;
     float: none;
     margin-left: 500px;
     margin-right: 500px;
@@ -36,10 +37,10 @@
 
 body{
     background-color: #274c27;
-    background-image:url(purple-digital-glitch-background-violet-pixel-distortion-glitch-transition.png);
+    background-image:url(purple-digital-glitch-background-violet-pixel-distortion-glitch-transition-2.png);
     color: #ffffff;
     text-shadow: 4px 2px #3b0072;
-    font-size: 20px;
+    font-size: 40px;
     font-family: 'Courier New', Courier, monospace;
     font-weight: bolder;
     margin-left: 250px;
@@ -57,7 +58,7 @@ ul {
 .title{
     color: #ff00dd;
     text-shadow: 4px 2px #3b0072;
-    font-size: 150px;
+    font-size: 100px;
     font-style: italic;
     font-weight: bold;
 }
