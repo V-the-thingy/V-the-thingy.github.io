@@ -1,12 +1,10 @@
 .boxtext {
-    padding-left: 200px;
-    padding-right: 200px;
     color : #be19b1;
     border: 5px solid #ff00dd;
     background-color: #000000;
     font-size: 30px;
     text-align: center;
-    text-wrap: balance;
+    text-wrap: none;
     float: none;
     margin-left: 500px;
     margin-right: 500px;
@@ -14,29 +12,25 @@
 }
 
 .blog {
-    padding-left: 200px;
-    padding-right: 200px;
     color : #be19b1;
     border: 5px solid #ff00dd;
     background-color: #000000;
     font-size: 30px;
     text-align: center;
     float: none;
-    text-wrap: balance;
+    text-wrap: none;
     margin-left: 500px;
     margin-right: 500px;
 }
 
 .boxtext2 {
-    padding-left: 200px;
-    padding-right: 200px;
     color : #be19b1;
     border: 5px solid #ff00dd;
     background-color: #000000;
     font-size: 30px;
     text-align: center;
     float: none;
-    text-wrap: balance;
+    text-wrap: none;
     margin-left: 500px;
     margin-right: 500px;
 }
@@ -49,7 +43,7 @@ body{
     font-size: 40px;
     font-family: 'Courier New', Courier, monospace;
     font-weight: bolder;
-    text-wrap: balance;
+    text-wrap: none;
     margin-left: 250px;
     margin-right: 250px;
 }
