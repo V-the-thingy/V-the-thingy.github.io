@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head><link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jacquarda+Bastarda+9&display=swap" rel="stylesheet"></head>
+<body>
+    <title>V-ebsite Blog 4</title>
+    <div class="boxtext"
+    <em>Index</em>
+    <br></br>
+    <center>
+    <nav class="index">
+        <a href="index.html">Home Page</a>
+        <a href="About me.html">About me</a>
+        <a href="Blog.html">Blog</a>
+        <a href="My work.html">My work</a>
+    </nav></div></center>
+<br></br>
+ <center>
+<div class="title">V rambles about setting up Active Directory for like 5 minutes.</div>
+<br></br>
+A week ago on wednesday I did a practical with my class to set up a Domain for Windows with the help of Active Directory and I have been instructed to make a blog post about it. This is lower quality than my usual blog posts because I was writing some of this at midnight and during my college breaks but I still hope it's up to your standards.
+<br></br>
+<div class="title">What is Active Directory and what does it do?</div>
+Active Directory is a piece of Software by Microsoft that assists with the management of a windows network, primarily the users within them and the devices connected to it. It’s used over here to set our student id’s on our accounts and to manage permissions to different applications. For example, we are the only people besides the T-levels who are allowed to use Cisco packet tracer as we are on a Technology based course and people doing tourism wouldn’t need to learn how to make networks using Cisco, so it is only available to the classes where it is nessacary to use it.
+<br></br>
+<div class="title">Why is centralised management a more secure option?</div>
+Centralised management entails only the top-of the top staff at a business get to be in charge of network permissions, with an example being that the IT for all of the East Kent College facilities are managed by one person (or at least EKC Dover and EKC Canterbury are). Imagine it like this. You are a plumber working on a sewer system and you have 50 supervisors telling you and your team different things to do. "Go knock down that wall!" "Increase the pressure on ALL the pipes!" "GET A HAIR CUT HIPPY!", it'll get overwhelming and at some point you'll get tired and your brain will mix up 2 messages and "Go knock down that wall!" & "Increase the pressure on ALL pipes!" becomes "Go knock down ALL pipes!", leading you to do just that and your entire town gets flooded and sunk with sewer water. Ew. Centralised management is like if you and your team have only one supervisor, you aren't overworked (or hopefully arent) and the chance to make a mistake is signifiganttly lower than it normally is. There is STILL a chance you'll go mad and break all the pipes but you hopefully wont.
+<br></br>
+<div class="title">How did you set it all up?</div>
+I first installed a Virtual Machine (imagine a operating system WITHIN your operating system, that’s what a Virtual Machine is) which ran Windows Server 2022 to start setting up a windows network for people to log into. We then assigned our own unique IP Adress and DNS to our network inside the Server Manager application that automatically started up on the VM (Virtual Machine) so that we didn’t accidentally take someone else's IP adress and end up getting traffic and pieces from their network tangled up in ours.
+<br></br>
+Once we set up the network itself, we started setting up the Active Directory and the DNS server itself, which we did by going back to the main dashboard of the Server Manager and click on “Add roles and features”, which will load up a set-up wizard to add said roles and features to the added. For us to add the AD and DNS features we had to do the following:
+<ol>
+<li>Make sure “Role-based or feature-based instillation is checked before pressining next</li>
+<li>Select “Active Directory Domain Services” and “DNS Server” in the Server Roles list</li>
+<li> Click next until you can’t anymore and then click install</li>
+</ol>
+Once everything has finished installing and the VM has restarted itself, you can move onto the next step.
+When you get back in the Server Manager application there should now be a flag icon with a yellow warning sign next to it besides the “manage” tab, indicating that you’re ready to configure AD. Click on the icon and click “Promote this server to a domain controller”, which will start up ANOTHER wizard, which should look like this:
+<br></br>
+<img src="Silly AD thingy1.png" alt="A configuration Menu to configure Active Directory">
+<br></br> 
+You should make sure the ”add a new forest” option is selected and give your root domain a unique name before selecting next, Ross (one of my current tutors) went with TLEVEL.Ian and I went similarly with LEVEL2.Kumatora but you can just call it something vaguely like either of the two. Once you press next you’ll have to make a password for the DSRM (Directory Services Restore Mode, helps fix the system if it’s damaged in anyway) and you better write it down as I’m not sure you can change it afterwards. From there you should make sure that DNS delegation is unchecked, and the NetBIOS name has filled in automatically, then click ”install” and you should be good to go.
+ Once I had Active Directory installed onto the Server Manager, I went back to the “Tools” tab, which should look like this:  
+ <br></br>
+ <img src="Silly AD thingy2.jpg" alt="A big long list of options to click, and I mean a LOT of options.">
+ <br></br>
+ and clicked “Active Directory Users and Computers”. This opened a new program which allowed me to start setting up users and groups. I had to make a new folder (called “Orginizational Unit” in the program) by right clicking my domain in the side tab and by hovering over “new” to get the option to do so. Once I’d named the folder I went inside the folder and added a new user by doing the same thing I just did but clicking “user” instead. You’ll have to enter in the spaces for details for the user and a password for them (DO NOT FORGET THE PASSWORD, WRITE IT DOWN.) and then hit “finish” to have the user be created. If this all went well, you should see that your Orginisational Unit is no longer empty and should have a user in it, which should look like this:
+ <br></br>
+ <img src="Silly AD thingy3.jpg" alt="A program simular to file manager with a user called 'Vaclav VS. Suda' in a orginisational unit called 'admins'">
+ <br></br>
+ So, we now have AD and a user set up, we can close the “AD Users and Computers” application, go back to the tools tab and click “Configure a DNS server”, which will open another application called “DNS manager”. This will go simuarly to the apast few configerations where you right click your server (the thing that says WIN at the start of it) and select “Configure a DNS server”, which will open yet another Wizard. For me most of the options I needed was already selected, but if they’re not for you then you should select and or adjust the following settings:
+<ul>
+<li>“Create a forward look up zone”
+<li>This server maintains the zone”
+<li>Make sure the zone name is the same as the domain name that you chose earlier while setting up AD
+<li>“Allow only secure dynamic updates”
+<li>Enter “192.168.1.1” after clicking “Click here to add an IP Address or DNS name”
+</ul>
+Then, you can click “finish” and you should have your DNS fully set up.
+<br></br>
+The AD and DNS are both now fully set up, so now lets get a different windows device connected to our domain! I made a new VM for this using regular Windows 10 (Make sure its network adapter is set to Bridged and you don’t install the home version) and once I installed it I right clicked the start button to “network conncetions” and changed the adapter options by going into “Advanced network settings”. From here you’ll want to right click and select “properties” on both your Ethernet Adapter and “Internet Protocal Version 4 (TCP/Ipv4)”. You can then change the primary DNS to your server IP from earlier and your alternate DNS server to “192.168.1.1” and close it.
+<br></br>
+Once you’ve done that, right click on the start menu again but select “system” this time, then click “advanced computer settings” and go to “Computer Name” and click the “change” button. You can then give your VM a name and set it to connect to your domain by selecting “Domain” and inputing the name of your domain into the box below. You’ll be met with a pop-up looking like this:
+<br></br> 
+<img src="Silly AD thingy4.png" alt="A pop-up window with 2 boxes to input a username and a password into">
+<br></br>
+Just input the credentials of the administrator account you were using on the other VM, press ok, and restart the machine once a pop-up welcomes you to the domain. From there you should be able to login to the User account you made earlier, it’ll ask you to make a new password, which you should do and note down the new password so you don’t forget it later. This was all I needed to do during the pratical, and I bet you could do it yourself now that you’ve read this blog post… or you already know and just wasted like 5 minutes of your time. My deepest appologies if that is the case. 
+Now, there was one other thing I was instructed to do by tutor (Ross), and that was to give a user admin permissions. You don’t have to even read this next part but it will be useful to read if you want to become a server manager in the future or are learning to become one and want to know how to set users as admins. If you want to give a normal user admin permissions then you’ll have to select a user, click on the “Member of” tab and press “add”, You can then type in “admin” to the textbox provided in a new pop-up, click “Check Names”, then when the text you input is underlined you can press ok, then apply. After that, the user should have Admin Permissions, and if they don’t then you should try turning the Virtual machine off and on again, that’s how it worked for me.
+
+<div class="title">What issues, if any, did you face?</div> 
+<br></br>
+There was only really one issue I faced throughout the entire thing, which was with the extension task. Online guides had told me that putting a user in the “Admins” group makes it so they have administrator permissions, but when I tried doing it allowed me to run files as administrator, but I needed “elevation” (more permission) to go through with it using the user’s credentials. The only way I was able to overcome this is by adding the user to any group that had “admin” in it and restart the VM, which is a TERRIBLE idea if you were in a real business as you might give the users more power than intended.
+<br></br>
+Do as I say, not as I do.
+<br></br> 
+<img src="Silly AD thingy5.jpg" alt="A lot of group names and file locations.">
+<br></br>
+That is all, see you next blog!
+</center>
+</body>
+</html>
